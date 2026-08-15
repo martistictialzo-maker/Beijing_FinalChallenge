@@ -179,7 +179,7 @@ document.addEventListener("keydown", event => {
         return;
     }
 
-    if (event.key === "Backspace" || event.key.toLowerCase() === "t") {
+    if (event.key === "Backspace" || event.key.toLowerCase() === "r") {
     
         event.preventDefault();
     
