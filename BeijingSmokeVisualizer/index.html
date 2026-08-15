@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+    rel="stylesheet"
+>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Beijing Smoke Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<main class="visualizer">
+
+    <!-- ========================================= -->
+    <!-- TITLE -->
+    <!-- ========================================= -->
+
+    <div class="titleArea">
+
+    <img
+        class="titleSmoke"
+        src="images/smokedesign.png"
+        alt=""
+    >
+
+    <h1>Beijing Smoke Visualizer</h1>
+
+</div>
+
+
+    <!-- ========================================= -->
+    <!-- SMOKE BOARD -->
+    <!-- ========================================= -->
+
+    <section class="smokeBoard">
+
+
+        <!-- ===================================== -->
+        <!-- GROUP LABELS -->
+        <!-- ===================================== -->
+
+        <div class="groupLabel group1">1</div>
+        <div class="groupLabel group2">2</div>
+        <div class="groupLabel group3">3</div>
+
+        <div class="groupLabel group4">4</div>
+        <div class="groupLabel group5">5</div>
+
+
+        <!-- ===================================== -->
+        <!-- ROW 1 - 9 BOXES -->
+        <!-- ===================================== -->
+
+        <div class="smokeSlot" data-slot="1"></div>
+        <div class="smokeSlot" data-slot="2"></div>
+        <div class="smokeSlot" data-slot="3"></div>
+
+        <div class="smokeSlot" data-slot="4"></div>
+        <div class="smokeSlot" data-slot="5"></div>
+        <div class="smokeSlot" data-slot="6"></div>
+
+        <div class="smokeSlot" data-slot="7"></div>
+        <div class="smokeSlot" data-slot="8"></div>
+        <div class="smokeSlot" data-slot="9"></div>
+
+
+        <!-- ===================================== -->
+        <!-- ROW 2 - 6 BOXES -->
+        <!-- ===================================== -->
+
+        <div class="smokeSlot" data-slot="10"></div>
+        <div class="smokeSlot" data-slot="11"></div>
+        <div class="smokeSlot" data-slot="12"></div>
+
+        <div class="smokeSlot" data-slot="13"></div>
+        <div class="smokeSlot" data-slot="14"></div>
+        <div class="smokeSlot" data-slot="15"></div>
+
+
+        <!-- ===================================== -->
+        <!-- CONTROLS -->
+        <!-- ===================================== -->
+
+        <div class="controls">
+
+            <!-- SMOKE CHOICES -->
+
+            <div class="smokeChoices">
+
+                <button
+                    class="smokeButton"
+                    data-smoke="1"
+                    type="button"
+                    aria-label="Left Smoke"
+                >
+                    <img
+                        src="images/LeftSmoke.png"
+                        alt="Left Smoke"
+                    >
+
+                    <span>1</span>
+                </button>
+
+
+                <button
+                    class="smokeButton"
+                    data-smoke="2"
+                    type="button"
+                    aria-label="Center Smoke"
+                >
+                    <img
+                        src="images/CenterSmoke.png"
+                        alt="Center Smoke"
+                    >
+
+                    <span>2</span>
+                </button>
+
+
+                <button
+                    class="smokeButton"
+                    data-smoke="3"
+                    type="button"
+                    aria-label="Right Smoke"
+                >
+                    <img
+                        src="images/RightSmoke.png"
+                        alt="Right Smoke"
+                    >
+
+                    <span>3</span>
+                </button>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="actionButtons">
+
+                <button
+                    id="deleteButton"
+                    type="button"
+                >
+                    Delete/Backspace
+                </button>
+
+
+                <button
+                    id="resetButton"
+                    type="button"
+                >
+                    RESET
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
