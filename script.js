@@ -179,13 +179,12 @@ document.addEventListener("keydown", event => {
         return;
     }
 
-    // Backspace = delete most recent smoke
-    if (event.key === "Backspace") {
-
+    if (event.key === "Backspace" || event.key.toLowerCase() === "t") {
+    
         event.preventDefault();
-
+    
         deleteLastSmoke();
-
+    
     }
 
 });
