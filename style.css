@@ -1,0 +1,1046 @@
+/* ========================================= */
+/* TITLE AREA */
+/* ========================================= */
+
+.titleArea {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================= */
+/* TITLE IMAGE */
+/* ========================================= */
+
+.titleSmoke {
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================= */
+/* TITLE */
+/* ========================================= */
+
+.titleArea h1 {
+    margin: 8px 0 0 0;
+
+    font-family: "Lilita One", Arial, sans-serif;
+
+    font-size: clamp(40px, 4.5vw, 60px);
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    text-align: center;
+
+    color: #111;
+}
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4fff7;
+    color: #222;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+
+/* ========================================= */
+/* MAIN VISUALIZER */
+/* ========================================= */
+
+.visualizer {
+    width: 100%;
+    max-width: 1200px;
+
+    height: calc(100vh - 20px);
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* ========================================= */
+/* TITLE */
+/* ========================================= */
+
+.visualizer h1 {
+    text-align: center;
+
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================= */
+/* SMOKE BOARD */
+/* ========================================= */
+
+.smokeBoard {
+    position: relative;
+
+    flex: 1;
+    min-height: 0;
+
+    width: 100%;
+
+    background: #f4fff7;
+
+    border: 2px solid #d94a4a;
+    border-radius: 6px;
+
+    overflow: hidden;
+
+
+    /* ------------------------------------- */
+    /* BOX SIZE */
+    /* ------------------------------------- */
+
+    --slot-size: clamp(65px, 8vw, 100px);
+
+
+    /* ------------------------------------- */
+    /* SPACE INSIDE EACH 3-BOX GROUP */
+    /* ------------------------------------- */
+
+    --slot-gap: clamp(8px, 0.8vw, 12px);
+
+
+    /* ------------------------------------- */
+    /* LARGE SPACE BETWEEN TOP GROUPS */
+    /* ------------------------------------- */
+
+    --group-gap: clamp(50px, 4.5vw, 70px);
+
+
+    /* ------------------------------------- */
+    /* WIDTH OF ONE 3-BOX GROUP */
+    /* ------------------------------------- */
+
+    --group-width:
+        calc(
+            (var(--slot-size) * 3)
+            +
+            (var(--slot-gap) * 2)
+        );
+
+
+    /* ------------------------------------- */
+    /* DISTANCE BETWEEN GROUP CENTERS */
+    /* ------------------------------------- */
+
+    --group-step:
+        calc(
+            var(--group-width)
+            +
+            var(--group-gap)
+        );
+
+
+    /* ------------------------------------- */
+    /* TOTAL WIDTH OF TOP ROW */
+    /* ------------------------------------- */
+
+    --total-width:
+        calc(
+            (var(--group-width) * 3)
+            +
+            (var(--group-gap) * 2)
+        );
+
+
+    /* ------------------------------------- */
+    /* LEFT EDGE OF TOP ROW */
+    /* ------------------------------------- */
+
+    --start:
+        calc(
+            50%
+            -
+            (var(--total-width) / 2)
+        );
+}
+
+
+/* ========================================= */
+/* GROUP LABELS */
+/* ========================================= */
+
+.groupLabel {
+    position: absolute;
+
+    z-index: 20;
+
+    width: 50px;
+
+    font-size: clamp(24px, 3vw, 40px);
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    color: #000;
+
+    text-align: center;
+
+    transform: translateX(-50%);
+}
+
+
+/* ========================================= */
+/* TOP LABEL 1 */
+/* ========================================= */
+
+.group1 {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-width) / 2)
+        );
+
+    top: 10px;
+}
+
+
+/* ========================================= */
+/* TOP LABEL 2 */
+/* ========================================= */
+
+.group2 {
+    left:
+        calc(
+            var(--start)
+            +
+            var(--group-step)
+            +
+            (var(--group-width) / 2)
+        );
+
+    top: 10px;
+}
+
+
+/* ========================================= */
+/* TOP LABEL 3 */
+/* ========================================= */
+
+.group3 {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) * 2)
+            +
+            (var(--group-width) / 2)
+        );
+
+    top: 10px;
+}
+
+
+/* ========================================= */
+/* LOWER LABEL 4 */
+/*
+   CENTERED BETWEEN TOP GROUP 1 AND 2
+*/
+/* ========================================= */
+
+.group4 {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) / 2)
+            +
+            (var(--group-width) / 2)
+        );
+
+    top:
+        calc(
+            60px
+            + var(--slot-size)
+            + 40px
+        );
+}
+
+
+/* ========================================= */
+/* LOWER LABEL 5 */
+/*
+   CENTERED BETWEEN TOP GROUP 2 AND 3
+*/
+/* ========================================= */
+
+.group5 {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) * 1.5)
+            +
+            (var(--group-width) / 2)
+        );
+
+    top:
+        calc(
+            60px
+            + var(--slot-size)
+            + 40px
+        );
+}
+
+
+/* ========================================= */
+/* ALL SMOKE SLOTS */
+/* ========================================= */
+
+.smokeSlot {
+    position: absolute;
+
+    width: var(--slot-size);
+    height: var(--slot-size);
+
+    background: #ffffff;
+
+    border: 2px solid #c40000;
+
+    border-radius: 2px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ========================================= */
+/* FIRST ROW */
+/* ========================================= */
+
+
+/* ----------------------------------------- */
+/* GROUP 1 */
+/* ----------------------------------------- */
+
+.smokeSlot[data-slot="1"] {
+    left: var(--start);
+    top: 60px;
+}
+
+.smokeSlot[data-slot="2"] {
+    left:
+        calc(
+            var(--start)
+            +
+            var(--slot-size)
+            +
+            var(--slot-gap)
+        );
+
+    top: 60px;
+}
+
+.smokeSlot[data-slot="3"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                (var(--slot-size) + var(--slot-gap))
+                * 2
+            )
+        );
+
+    top: 60px;
+}
+
+
+/* ----------------------------------------- */
+/* GROUP 2 */
+/* ----------------------------------------- */
+
+.smokeSlot[data-slot="4"] {
+    left:
+        calc(
+            var(--start)
+            +
+            var(--group-step)
+        );
+
+    top: 60px;
+}
+
+.smokeSlot[data-slot="5"] {
+    left:
+        calc(
+            var(--start)
+            +
+            var(--group-step)
+            +
+            var(--slot-size)
+            +
+            var(--slot-gap)
+        );
+
+    top: 60px;
+}
+
+.smokeSlot[data-slot="6"] {
+    left:
+        calc(
+            var(--start)
+            +
+            var(--group-step)
+            +
+            (
+                (var(--slot-size) + var(--slot-gap))
+                * 2
+            )
+        );
+
+    top: 60px;
+}
+
+
+/* ----------------------------------------- */
+/* GROUP 3 */
+/* ----------------------------------------- */
+
+.smokeSlot[data-slot="7"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) * 2)
+        );
+
+    top: 60px;
+}
+
+.smokeSlot[data-slot="8"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) * 2)
+            +
+            var(--slot-size)
+            +
+            var(--slot-gap)
+        );
+
+    top: 60px;
+}
+
+.smokeSlot[data-slot="9"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (var(--group-step) * 2)
+            +
+            (
+                (var(--slot-size) + var(--slot-gap))
+                * 2
+            )
+        );
+
+    top: 60px;
+}
+
+
+/* ========================================= */
+/* SECOND ROW */
+/*
+       4:  □ □ □
+
+                 5:  □ □ □
+*/
+/* ========================================= */
+
+
+/* ----------------------------------------- */
+/* GROUP 4 */
+/*
+   Center is exactly halfway between
+   top Group 1 and top Group 2
+*/
+/* ----------------------------------------- */
+
+.smokeSlot[data-slot="10"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) / 2
+            )
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+.smokeSlot[data-slot="11"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) / 2
+            )
+            +
+            var(--slot-size)
+            +
+            var(--slot-gap)
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+.smokeSlot[data-slot="12"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) / 2
+            )
+            +
+            (
+                (var(--slot-size) + var(--slot-gap))
+                * 2
+            )
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+
+/* ----------------------------------------- */
+/* GROUP 5 */
+/*
+   Center is exactly halfway between
+   top Group 2 and top Group 3
+*/
+/* ----------------------------------------- */
+
+.smokeSlot[data-slot="13"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) * 1.5
+            )
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+.smokeSlot[data-slot="14"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) * 1.5
+            )
+            +
+            var(--slot-size)
+            +
+            var(--slot-gap)
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+.smokeSlot[data-slot="15"] {
+    left:
+        calc(
+            var(--start)
+            +
+            (
+                var(--group-step) * 1.5
+            )
+            +
+            (
+                (var(--slot-size) + var(--slot-gap))
+                * 2
+            )
+        );
+
+    top:
+        calc(
+            60px
+            +
+            var(--slot-size)
+            +
+            90px
+        );
+}
+
+
+/* ========================================= */
+/* SMOKE IMAGE */
+/* ========================================= */
+
+.smokeSlot img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ========================================= */
+/* CONTROLS */
+/* ========================================= */
+
+.controls {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    width: max-content;
+}
+
+
+/* ========================================= */
+/* SMOKE CHOICES */
+/* ========================================= */
+
+.smokeChoices {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* ========================================= */
+/* SMOKE BUTTONS */
+/* ========================================= */
+
+.smokeButton {
+    position: relative;
+
+    width: 160px;
+    height: 160px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border: 2px solid #c40000;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.smokeButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.smokeButton:active {
+    transform: scale(0.94);
+}
+
+
+/* ========================================= */
+/* BUTTON IMAGE */
+/* ========================================= */
+
+.smokeButton img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ========================================= */
+/* BUTTON NUMBER */
+/* ========================================= */
+
+.smokeButton span {
+    position: absolute;
+
+    bottom: 5px;
+    right: 5px;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+
+    border: 1px solid #c40000;
+
+    border-radius: 50%;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #b00000;
+}
+
+
+/* ========================================= */
+/* ACTION BUTTONS */
+/* ========================================= */
+
+.actionButtons {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.actionButtons button {
+    width: 160px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: normal;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.actionButtons button:hover {
+    filter: brightness(1.05);
+}
+
+.actionButtons button:active {
+    transform: scale(0.95);
+}
+
+
+/* ========================================= */
+/* DELETE */
+/* ========================================= */
+
+#deleteButton {
+    background: #d46a6a;
+    color: #111;
+}
+
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+#resetButton {
+    background: #c90000;
+    color: #111;
+}
+
+
+/* ========================================= */
+/* TABLET / SMALL LAPTOP */
+/* ========================================= */
+
+@media (max-width: 950px) {
+
+    .smokeBoard {
+        --slot-size: clamp(65px, 8.5vw, 95px);
+        --slot-gap: clamp(8px, 1vw, 11px);
+        --group-gap: clamp(40px, 4.5vw, 60px);
+    }
+
+    .controls {
+        gap: 20px;
+    }
+
+    .smokeChoices {
+        gap: 7px;
+    }
+
+    .smokeButton {
+        width: 105px;
+        height: 105px;
+    }
+
+    .actionButtons button {
+        width: 140px;
+        height: 46px;
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================= */
+/* MOBILE PORTRAIT */
+/* ========================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        height: auto;
+    }
+
+    body {
+        padding: 8px;
+    }
+
+    .visualizer {
+        height: auto;
+        width: 100%;
+    }
+
+    .visualizer h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .smokeBoard {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        min-height: 0;
+
+        padding: 12px;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        grid-auto-rows: auto;
+
+        gap: 10px;
+
+        justify-content: center;
+
+        overflow: visible;
+    }
+
+
+    /* Hide 1-5 on mobile */
+    .groupLabel {
+        display: none;
+    }
+
+
+    /* Mobile boxes */
+    .smokeSlot {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        max-width: none;
+
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        justify-self: stretch;
+    }
+
+
+    /* Mobile controls */
+    .controls {
+        position: static;
+
+        transform: none;
+
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 14px;
+
+        padding-top: 12px;
+    }
+
+
+    .smokeChoices {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+
+    .smokeButton {
+        width: 90px;
+        height: 90px;
+    }
+
+
+    .actionButtons {
+        width: 100%;
+
+        flex-direction: row;
+
+        gap: 10px;
+    }
+
+    .actionButtons button {
+        flex: 1;
+
+        width: auto;
+
+        height: 48px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================= */
+/* VERY SMALL PHONES */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .visualizer h1 {
+        font-size: 20px;
+    }
+
+    .smokeBoard {
+        padding: 8px;
+        gap: 7px;
+    }
+
+    .smokeButton {
+        width: 72px;
+        height: 72px;
+    }
+
+    .smokeButton span {
+        width: 20px;
+        height: 20px;
+
+        font-size: 11px;
+    }
+
+    .actionButtons button {
+        height: 44px;
+        font-size: 12px;
+    }
+}
