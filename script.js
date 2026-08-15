@@ -154,28 +154,19 @@ resetButton.addEventListener("click", () => {
 // ======================================================
 
 document.addEventListener("keydown", event => {
-
-    // 1 = Left Smoke
-    if (event.key === "1") {
-
+    
+        if (event.key === "1" || event.key.toLowerCase() === "a") {
         placeSmoke(1);
-
         return;
     }
-
-    // 2 = Center Smoke
-    if (event.key === "2") {
-
+    
+    if (event.key === "2" || event.key.toLowerCase() === "w") {
         placeSmoke(2);
-
         return;
     }
-
-    // 3 = Right Smoke
-    if (event.key === "3") {
-
+    
+    if (event.key === "3" || event.key.toLowerCase() === "d") {
         placeSmoke(3);
-
         return;
     }
 
