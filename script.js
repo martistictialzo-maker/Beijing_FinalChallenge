@@ -13,7 +13,7 @@ const deleteButton = document.getElementById("deleteButton");
 const resetButton = document.getElementById("resetButton");
 
 // ------------------------------------------------------
-// SMOKE Images
+// SMOKE IMAGES
 // ------------------------------------------------------
 
 const smokeImages = {
