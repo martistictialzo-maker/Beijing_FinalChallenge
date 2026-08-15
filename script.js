@@ -17,9 +17,9 @@ const resetButton = document.getElementById("resetButton");
 // ------------------------------------------------------
 
 const smokeImages = {
-    1: "Images/LeftSmoke.png",
-    2: "Images/CenterSmoke.png",
-    3: "Images/RightSmoke.png"
+    1: "./Images/LeftSmoke.png",
+    2: "./Images/CenterSmoke.png",
+    3: "./Images/RightSmoke.png"
 };
 
 // ------------------------------------------------------
